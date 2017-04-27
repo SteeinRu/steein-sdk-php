@@ -15,7 +15,7 @@ require_once '/path/to/your-project/vendor/autoload.php';
 ```
 
 
-## Developer and Steein SDK Documentation
+## Developer Documentation
 
  * [Steein SDK Documentation](https://www.steein.ru/developers/docs/php/getting_started)
  * [Developer Documentation](https://www.steein.ru/developers/docs/overview)
