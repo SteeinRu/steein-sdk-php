@@ -31,7 +31,9 @@ namespace Steein\SDK\Http\Helpers;
 use Steein\SDK\Authentication\AccessToken;
 use Steein\SDK\Authentication\OAuth2Client;
 use Steein\SDK\Exceptions\SteeinSDKException;
+use Steein\SDK\Url\UrlDetectionHandler;
 use Steein\SDK\Url\UrlDetectionInterface;
+use Steein\SDK\Url\UrlManipulator;
 
 /**
  * Class RedirectOAuth
@@ -58,10 +60,12 @@ class RedirectOAuth
      * Клиентский сервис OAuth 2.0.
      *
      * @param OAuth2Client $oAuth2Client
+     * @param UrlDetectionInterface|null $urlHandler
      */
-    public function __construct(OAuth2Client $oAuth2Client)
+    public function __construct(OAuth2Client $oAuth2Client, UrlDetectionInterface $urlHandler = null)
     {
         $this->oAuth2Client = $oAuth2Client;
+        $this->urlDetectionHandler = $urlHandler ?: new UrlDetectionHandler();
     }
 
     /**
@@ -107,6 +111,10 @@ class RedirectOAuth
         if (!$code = $this->getCode()) {
             return null;
         }
+
+        $redirectUrl = $redirectUrl ?: $this->urlDetectionHandler->getCurrentUrl();
+        // Нам нужно удалить параметры кода и состояния
+        $redirectUrl = UrlManipulator::removeParamsFromUrl($redirectUrl, ['state','code']);
 
         return $this->oAuth2Client->getAccessTokenFromCode($code, $redirectUrl);
     }
