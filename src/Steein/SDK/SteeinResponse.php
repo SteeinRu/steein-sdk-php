@@ -37,7 +37,7 @@ use Steein\SDK\Support\ModelFactory;
  * Class SteeinResponse
  *
  * @package Steein\SDK
-*/
+ */
 class SteeinResponse implements SteeinResponseInterface
 {
     /**
@@ -86,7 +86,7 @@ class SteeinResponse implements SteeinResponseInterface
      * Экземпляр факторного класса для моделей
      *
      * @return \Steein\SDK\Support\ModelFactory
-    */
+     */
     protected $factory;
 
     /**
@@ -303,5 +303,16 @@ class SteeinResponse implements SteeinResponseInterface
     public function getPostModel()
     {
         return $this->factory->makePostModel();
+    }
+
+    /**
+     * Удобный способ для создания коллекции MediaModel.
+     *
+     * @return Support\Model|Support\Models\MediaModel
+     * @throws SteeinSDKException
+     */
+    public function getMediaModel()
+    {
+        return $this->factory->makeMediaModel();
     }
 }

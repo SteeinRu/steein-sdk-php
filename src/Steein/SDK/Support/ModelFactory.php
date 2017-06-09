@@ -29,15 +29,15 @@
 namespace Steein\SDK\Support;
 
 use Steein\SDK\Exceptions\SteeinSDKException;
+use Steein\SDK\Support\Models\MediaModel;
 use Steein\SDK\Support\Models\PostModel;
-use Steein\SDK\Support\Models\UserDefinitionModel;
 use Steein\SDK\Support\Models\UserModel;
 
 /**
  * Class ModelFactory
  *
  * @package Steein\SDK
-*/
+ */
 class ModelFactory extends SignatureParameters
 {
     /**
@@ -79,5 +79,17 @@ class ModelFactory extends SignatureParameters
     public function makePostModel()
     {
         return $this->makeApiObject(PostModel::class);
+    }
+
+    /**
+     * Удобный способ для создания коллекции MediaModel.
+     *
+     * @return Model|MediaModel
+     *
+     * @throws SteeinSDKException
+     */
+    public function makeMediaModel()
+    {
+        return $this->makeApiObject(MediaModel::class);
     }
 }
