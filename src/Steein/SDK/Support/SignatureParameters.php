@@ -59,7 +59,7 @@ abstract class SignatureParameters
      *
      * @const string
      */
-    const BASE_OBJECT_PREFIX = '\Steein\\SDK\\Support\\Models\\';
+    const BASE_OBJECT_PREFIX = '\\Steein\\SDK\\Support\\Models\\';
 
     /**
      * Объект ответа от Api.
