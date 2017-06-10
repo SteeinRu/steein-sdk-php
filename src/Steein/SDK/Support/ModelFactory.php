@@ -69,7 +69,7 @@ class ModelFactory extends SignatureParameters
     /**
      * Удобный способ для создания коллекции Моделей
      *
-     * @throws SteeinSDKException
+     * @return Model
      */
     public function makeModel($class)
     {

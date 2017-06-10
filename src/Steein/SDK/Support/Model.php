@@ -42,7 +42,9 @@ class Model extends Collection
      *
      * @var array
      */
-    protected static $objects = [];
+    protected static $objects = [
+        //
+    ];
 
     /**
      * Инициализация Модели.
