@@ -38,14 +38,14 @@ use Steein\Common\Collections\Collection;
 class Model extends Collection
 {
     /**
-     * Имена объектов объектов Maps для типов объектов Api.
+     * Имена объектов
      *
      * @var array
      */
-    protected static $apiObjectMap = [];
+    protected static $objects = [];
 
     /**
-     * Инициализация объекта Api.
+     * Инициализация Модели.
      *
      * @param array $data
      */
@@ -55,8 +55,8 @@ class Model extends Collection
     }
 
     /**
-     * Итерации по массиву и определение типов каждого узла
-     * Должно быть приведено к и возвращает все элементы в виде массива.
+     * Итерации по массиву и определение типов каждого узла,
+     * возвращает все элементы в виде массива.
      *
      * @param array $data Массив для итерации.
      *
@@ -66,10 +66,7 @@ class Model extends Collection
     {
         $items = [];
         foreach ($data as $k => $v) {
-            if ($this->shouldCastAsDateTime($k)
-                && (is_numeric($v)
-                    || $this->isIso8601DateString($v))
-            ) {
+            if ($this->shouldCastAsDateTime($k) && (is_numeric($v) || $this->isIso8601DateString($v))) {
                 $items[$k] = $this->castToDateTime($v);
             }  else {
                 $items[$k] = $v;
@@ -125,7 +122,7 @@ class Model extends Collection
     }
 
     /**
-     * Определяет, следует ли преобразовывать значение из Api в DateTime.
+     * Определяет, следует ли преобразовывать значение из Model в DateTime.
      *
      * @param string $key
      *
@@ -141,12 +138,11 @@ class Model extends Collection
             'backdated_time',
             'issued_at',
             'expires_at',
-            'publish_time'
         ], true);
     }
 
     /**
-     * Преобразует значение даты из Api в DateTime.
+     * Преобразует значение даты из Model в DateTime.
      *
      * @param int|string $value
      *
@@ -165,12 +161,12 @@ class Model extends Collection
     }
 
     /**
-     * Получите для $apiObjectMap.
+     * Получаем список объектов
      *
      * @return array
      */
-    public static function getObjectMap()
+    public static function getObjects()
     {
-        return static::$apiObjectMap;
+        return static::$objects;
     }
 }
