@@ -38,16 +38,6 @@ use Steein\SDK\Support\Model;
 class PostModel extends Model
 {
     /**
-     * Именует имена ключей объектов в типы Model.
-     *
-     * @var array
-     */
-    protected static $apiObjectMap = [
-        //'hashtag'           =>  '\Steein\SDK\Services\ApiHashTag',
-        'user'              =>  '\Steein\SDK\Services\Api\ApiUser'
-    ];
-
-    /**
      * Возвращает ID записи
      *
      * @return integer
