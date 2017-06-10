@@ -26,31 +26,15 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
+
 namespace Steein\SDK\Support\Models;
 
 use Steein\SDK\Support\Model;
 
-/**
- * Class PostModel
- *
- * @package Steein\SDK
- */
-class PostModel extends Model
+class UserDefinition extends Model
 {
     /**
-     * Именует имена ключей объектов в типы Model.
-     *
-     * @return MediaFinally
-     */
-    public static $objects = [
-        'hashtags'          =>  PostHashTag::class,
-        'user_definition'   =>  UserDefinition::class,
-        'media'             =>  PostMedia::class,
-        'user'              =>  PostUser::class
-    ];
-
-    /**
-     * Возвращает ID записи
+     * Возвращает ID пользователя
      *
      * @return integer
      */
@@ -60,32 +44,32 @@ class PostModel extends Model
     }
 
     /**
-     * Возвращает ID автора
+     * Возвращает Имя пользователя
      *
-     * @return integer
+     * @return string|null
      */
-    public function getUserId()
+    public function getUserName()
     {
-        return $this->get('user_id');
+        return $this->get('username');
     }
 
     /**
-     * Возвращает полный текст записи
+     * Возвращает Имя и Фамилию
      *
-     * @return string
+     * @return string|null
      */
-    public function getText()
+    public function getName()
     {
-        return $this->get('text');
+        return $this->get('name');
     }
 
     /**
-     * Возвращает Дату создания записи
+     * Возвращает статус проверенных учетных записей
      *
-     * @return string
+     * @return boolean
      */
-    public function getCreatedAt()
+    public function getVerified()
     {
-        return $this->get('created_at');
+        return $this->get('verified');
     }
 }

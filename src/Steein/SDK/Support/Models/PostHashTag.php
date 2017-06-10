@@ -26,6 +26,7 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
+
 namespace Steein\SDK\Support\Models;
 
 use Steein\SDK\Support\Model;
@@ -35,57 +36,15 @@ use Steein\SDK\Support\Model;
  *
  * @package Steein\SDK
  */
-class PostModel extends Model
+class PostHashTag extends Model
 {
     /**
-     * Именует имена ключей объектов в типы Model.
-     *
-     * @return MediaFinally
-     */
-    public static $objects = [
-        'hashtags'          =>  PostHashTag::class,
-        'user_definition'   =>  UserDefinition::class,
-        'media'             =>  PostMedia::class,
-        'user'              =>  PostUser::class
-    ];
-
-    /**
-     * Возвращает ID записи
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->get('id');
-    }
-
-    /**
-     * Возвращает ID автора
-     *
-     * @return integer
-     */
-    public function getUserId()
-    {
-        return $this->get('user_id');
-    }
-
-    /**
-     * Возвращает полный текст записи
+     * Возвращает текст хеш тэга
      *
      * @return string
      */
     public function getText()
     {
         return $this->get('text');
-    }
-
-    /**
-     * Возвращает Дату создания записи
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->get('created_at');
     }
 }

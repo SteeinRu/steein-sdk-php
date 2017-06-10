@@ -31,26 +31,14 @@ namespace Steein\SDK\Support\Models;
 use Steein\SDK\Support\Model;
 
 /**
- * Class PostModel
+ * Class PostUser
  *
  * @package Steein\SDK
  */
-class PostModel extends Model
+class PostUser extends Model
 {
     /**
-     * Именует имена ключей объектов в типы Model.
-     *
-     * @return MediaFinally
-     */
-    public static $objects = [
-        'hashtags'          =>  PostHashTag::class,
-        'user_definition'   =>  UserDefinition::class,
-        'media'             =>  PostMedia::class,
-        'user'              =>  PostUser::class
-    ];
-
-    /**
-     * Возвращает ID записи
+     * Возвращает ID пользователя
      *
      * @return integer
      */
@@ -60,32 +48,53 @@ class PostModel extends Model
     }
 
     /**
-     * Возвращает ID автора
+     * Возвращает Имя и Фамилию
      *
-     * @return integer
+     * @return string|null
      */
-    public function getUserId()
+    public function getName()
     {
-        return $this->get('user_id');
+        return $this->get('name');
     }
 
     /**
-     * Возвращает полный текст записи
+     * Возвращает Имя пользователя
      *
-     * @return string
+     * @return string|null
      */
-    public function getText()
+    public function getUserName()
     {
-        return $this->get('text');
+        return $this->get('username');
     }
 
     /**
-     * Возвращает Дату создания записи
+     * Возвращает путь к учетной записи
      *
      * @return string
      */
-    public function getCreatedAt()
+    public function getAccountUrl()
     {
-        return $this->get('created_at');
+        return $this->get('account_url');
     }
+
+    /**
+     * Возвращает путь к аватарке
+     *
+     * @return boolean
+     */
+    public function getProfileImageUrl()
+    {
+        return $this->get('profile_image_url');
+    }
+
+    /**
+     * Возвращает используемую локализацию
+     *
+     * @return string|null
+     */
+    public function getLanguage()
+    {
+        return $this->get('language');
+    }
+
 }

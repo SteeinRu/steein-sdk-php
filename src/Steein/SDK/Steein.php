@@ -49,7 +49,7 @@ class Steein implements SteeinInterface
      *
      * @const string
     */
-    const VERSION = '0.0.1';
+    const VERSION = '0.5';
 
     /**
      * Актуальная версия Steein API
@@ -362,9 +362,10 @@ class Steein implements SteeinInterface
     protected function defaultConfig()
     {
         return [
-            'client_id'             => getenv(static::CLIENT_ID_ENV_NAME),
-            'client_secret'         => getenv(static::CLIENT_SECRET_ENV_NAME),
-            'default_api_version'   => getenv(static::DEFAULT_API_VERSION)
+            'client_id'             =>  getenv(static::CLIENT_ID_ENV_NAME),
+            'client_secret'         =>  getenv(static::CLIENT_SECRET_ENV_NAME),
+            'default_api_version'   =>  getenv(static::DEFAULT_API_VERSION),
+            'default_access_token'  =>  null
         ];
     }
 }
