@@ -29,9 +29,6 @@
 namespace Steein\SDK\Support;
 
 use Steein\SDK\Exceptions\SteeinSDKException;
-use Steein\SDK\Support\Models\MediaModel;
-use Steein\SDK\Support\Models\PostModel;
-use Steein\SDK\Support\Models\UserModel;
 
 /**
  * Class ModelFactory
@@ -49,47 +46,33 @@ class ModelFactory extends SignatureParameters
      *
      * @throws SteeinSDKException
      */
-    public function makeApiObject($subclassName = null)
+    public function makeObject($subclassName = null)
     {
         $this->validateResponseAsArray();
-        //$this->validateResponseCastableAsModel();
-
         return $this->castAsModelOrModelEdge($this->decodedBody, $subclassName);
     }
 
-    /**
-     * Удобный способ для создания коллекции ApiUser.
+    /***
+     * Автоматическое опеределение методов
      *
-     * @return Model|UserModel
-     *
-     * @throws SteeinSDKException
+     * @param $name string Название модели
+     * @param $class
+     * @return mixed
      */
-    public function makeUserModel()
+    public function Identify($name, $class)
     {
-        return $this->makeApiObject(UserModel::class);
+        $method = 'make'.lcfirst($name);
+        if(method_exists($this, $method))
+            $this->{$name}($class);
     }
 
     /**
-     * Удобный способ для создания коллекции ApiPost.
-     *
-     * @return Model|PostModel
+     * Удобный способ для создания коллекции Моделей
      *
      * @throws SteeinSDKException
      */
-    public function makePostModel()
+    public function makeModel($class)
     {
-        return $this->makeApiObject(PostModel::class);
-    }
-
-    /**
-     * Удобный способ для создания коллекции MediaModel.
-     *
-     * @return Model|MediaModel
-     *
-     * @throws SteeinSDKException
-     */
-    public function makeMediaModel()
-    {
-        return $this->makeApiObject(MediaModel::class);
+        return $this->makeObject($class);
     }
 }

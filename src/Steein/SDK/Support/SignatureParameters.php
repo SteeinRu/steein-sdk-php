@@ -122,7 +122,7 @@ abstract class SignatureParameters
         {
             // Средство массива может быть повторно использовано
             if (is_array($v)) {
-                $graphObjectMap = $subclassName::getObjectMap();
+                $graphObjectMap = $subclassName::getObjects();
                 $objectSubClass = isset($graphObjectMap[$k])
                     ? $graphObjectMap[$k]
                     : null;
@@ -264,7 +264,7 @@ abstract class SignatureParameters
             // Средство массива может быть повторно использовано
             if (is_array($v))
             {
-                $graphObjectMap = $subclassName::getObjectMap();
+                $graphObjectMap = $subclassName::getObjects();
                 $objectSubClass = isset($graphObjectMap[$k]) ? $graphObjectMap[$k] : null;
 
                 // Может быть ModelEdge или Model

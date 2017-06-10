@@ -32,6 +32,9 @@ use Steein\SDK\Exceptions\ResponseException;
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\Interfaces\SteeinResponseInterface;
 use Steein\SDK\Support\ModelFactory;
+use Steein\SDK\Support\Models\MediaModel;
+use Steein\SDK\Support\Models\PostModel;
+use Steein\SDK\Support\Models\UserModel;
 
 /**
  * Class SteeinResponse
@@ -280,7 +283,7 @@ class SteeinResponse implements SteeinResponseInterface
      */
     public function getApiObject($subclassName = null)
     {
-        return $this->factory->makeApiObject($subclassName);
+        return $this->factory->makeObject($subclassName);
     }
 
     /**
@@ -291,7 +294,7 @@ class SteeinResponse implements SteeinResponseInterface
      */
     public function getUserModel()
     {
-        return $this->factory->makeUserModel();
+        return $this->factory->makeModel(UserModel::class);
     }
 
     /**
@@ -302,7 +305,7 @@ class SteeinResponse implements SteeinResponseInterface
      */
     public function getPostModel()
     {
-        return $this->factory->makePostModel();
+        return $this->factory->makeModel(PostModel::class);
     }
 
     /**
@@ -313,6 +316,6 @@ class SteeinResponse implements SteeinResponseInterface
      */
     public function getMediaModel()
     {
-        return $this->factory->makeMediaModel();
+        return $this->factory->makeModel(MediaModel::class);
     }
 }
