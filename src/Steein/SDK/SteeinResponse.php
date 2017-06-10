@@ -289,7 +289,7 @@ class SteeinResponse implements SteeinResponseInterface
     /**
      * Удобный способ для создания коллекции ApiUser.
      *
-     * @return \Steein\SDK\Support\Models\UserModel
+     * @return Support\Model|UserModel
      * @throws SteeinSDKException
      */
     public function getUserModel()
@@ -300,21 +300,17 @@ class SteeinResponse implements SteeinResponseInterface
     /**
      * Удобный способ для создания коллекции ApiPost.
      *
-     * @param bool $first
      * @return Support\Model|PostModel
      */
-    public function getPostModel($first = false)
+    public function getPostModel()
     {
-        if($first == false)
-            return $this->factory->makeModel(PostModel::class);
-        else
-            return $this->factory->makeModel(PostModel::class);
+        return $this->factory->makeModel(PostModel::class);
     }
 
     /**
      * Удобный способ для создания коллекции MediaModel.
      *
-     * @return Support\Models\MediaModel
+     * @return Support\Model|MediaModel
      * @throws SteeinSDKException
      */
     public function getMediaModel()
