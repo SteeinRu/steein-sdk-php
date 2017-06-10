@@ -42,7 +42,7 @@ class MediaModel extends Model
      *
      * @return MediaFinally
      */
-    public static $finally = [
+    public static $objects = [
         'finally'  =>  MediaFinally::class
     ];
 
