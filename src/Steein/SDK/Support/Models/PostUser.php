@@ -96,5 +96,4 @@ class PostUser extends Model
     {
         return $this->get('language');
     }
-
 }
