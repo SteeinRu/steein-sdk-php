@@ -26,7 +26,7 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Steein\SDK\Support\Models;
+namespace Steein\SDK\Support;
 
 use Steein\Common\Collections\Collection;
 use Steein\SDK\Exceptions\SteeinSDKException;
