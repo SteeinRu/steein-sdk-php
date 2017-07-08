@@ -32,10 +32,6 @@ use Steein\SDK\Exceptions\ResponseException;
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\Interfaces\SteeinResponseInterface;
 use Steein\SDK\Support\ModelFactory;
-use Steein\SDK\Support\Models\FollowersModel;
-use Steein\SDK\Support\Models\FollowingModel;
-use Steein\SDK\Support\Models\PostModel;
-use Steein\SDK\Support\Models\PostsModel;
 use Steein\SDK\Support\Models\UserModel;
 
 /**
@@ -297,55 +293,4 @@ class SteeinResponse implements SteeinResponseInterface
     {
         return $this->factory->makeModel(UserModel::class);
     }
-
-    /***
-     * Инициализация коллекции FollowersModel.
-     *
-     * @return Support\Model|FollowersModel
-     */
-    public function getFollowersModel()
-    {
-        return $this->factory->makeModel(FollowersModel::class);
-    }
-
-    /***
-     * Инициализация коллекции FollowingModel.
-     *
-     * @return Support\Model|FollowingModel
-     */
-    public function getFollowingModel()
-    {
-        return $this->factory->makeModel(FollowingModel::class);
-    }
-
-    /***
-     * Инициализация коллекции PostModel.
-     *
-     * @return Support\Model|PostModel
-     */
-    public function getPostModel()
-    {
-        return $this->factory->makeModel(PostModel::class);
-    }
-
-    /***
-     * Инициализация коллекции PostsModel.
-     *
-     * @return Support\Model|PostsModel
-     */
-    public function getPostsModel()
-    {
-        return $this->factory->makeModel(PostsModel::class);
-    }
-
-    /***
-     * Инициализация коллекции CommentModel.
-     *
-     * @return Support\Model|CommentModel
-     */
-    public function getCommentModel()
-    {
-        return $this->factory->makeModel(CommentModel::class);
-    }
-
 }
