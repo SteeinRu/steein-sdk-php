@@ -32,8 +32,10 @@ use Steein\SDK\Exceptions\ResponseException;
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\Interfaces\SteeinResponseInterface;
 use Steein\SDK\Support\ModelFactory;
-use Steein\SDK\Support\Models\MediaModel;
+use Steein\SDK\Support\Models\FollowersModel;
+use Steein\SDK\Support\Models\FollowingModel;
 use Steein\SDK\Support\Models\PostModel;
+use Steein\SDK\Support\Models\PostsModel;
 use Steein\SDK\Support\Models\UserModel;
 
 /**
@@ -287,18 +289,37 @@ class SteeinResponse implements SteeinResponseInterface
     }
 
     /**
-     * Удобный способ для создания коллекции ApiUser.
+     * Инициализация коллекции UserModel.
      *
      * @return Support\Model|UserModel
-     * @throws SteeinSDKException
      */
     public function getUserModel()
     {
         return $this->factory->makeModel(UserModel::class);
     }
 
-    /**
-     * Удобный способ для создания коллекции ApiPost.
+    /***
+     * Инициализация коллекции FollowersModel.
+     *
+     * @return Support\Model|FollowersModel
+     */
+    public function getFollowersModel()
+    {
+        return $this->factory->makeModel(FollowersModel::class);
+    }
+
+    /***
+     * Инициализация коллекции FollowingModel.
+     *
+     * @return Support\Model|FollowingModel
+     */
+    public function getFollowingModel()
+    {
+        return $this->factory->makeModel(FollowingModel::class);
+    }
+
+    /***
+     * Инициализация коллекции PostModel.
      *
      * @return Support\Model|PostModel
      */
@@ -307,14 +328,24 @@ class SteeinResponse implements SteeinResponseInterface
         return $this->factory->makeModel(PostModel::class);
     }
 
-    /**
-     * Удобный способ для создания коллекции MediaModel.
+    /***
+     * Инициализация коллекции PostsModel.
      *
-     * @return Support\Model|MediaModel
-     * @throws SteeinSDKException
+     * @return Support\Model|PostsModel
      */
-    public function getMediaModel()
+    public function getPostsModel()
     {
-        return $this->factory->makeModel(MediaModel::class);
+        return $this->factory->makeModel(PostsModel::class);
     }
+
+    /***
+     * Инициализация коллекции CommentModel.
+     *
+     * @return Support\Model|CommentModel
+     */
+    public function getCommentModel()
+    {
+        return $this->factory->makeModel(CommentModel::class);
+    }
+
 }

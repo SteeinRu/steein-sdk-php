@@ -133,8 +133,8 @@ class Model extends Collection
     public function shouldCastAsDateTime($key)
     {
         return in_array($key, [
-            'created_at',
-            'updated_at',
+            'created_',
+            'updated',
             'start_time',
             'end_time',
             'backdated_time',

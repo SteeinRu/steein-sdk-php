@@ -37,38 +37,68 @@ use Steein\SDK\Support\Model;
  */
 class UserModel extends Model
 {
-    /**
-     * Возвращает ID в ввиде строки
+   /***
+    * Возвращает идентификатор пользователя
+    *
+    * @return integer
+   */
+   public function getId()
+   {
+       return $this->get('id');
+   }
+
+   /***
+    * Возвращает адрес электронной почты
+    *
+    * @return string|null
+   */
+   public function getEmail()
+   {
+       return $this->get('email');
+   }
+
+   /***
+    * Возвращает индивидуальное имя пользователя
+    *
+    * @return string|null
+   */
+   public function getUsername()
+   {
+       return $this->get('username');
+   }
+
+   /***
+    * Возвращает полное имя и фамилию
+    *
+    * @return string|null
+   */
+   public function getDisplayName()
+   {
+       return $this->get('displayName');
+   }
+
+    /***
+     * Возращает Имя
      *
      * @return string|null
      */
-    public function getId()
+    public function getFirstName()
     {
-        return $this->get('id');
+        return $this->get('name')['first_name'];
     }
 
-    /**
-     * Возвращает Имя пользователя
+    /***
+     * Возращает Фамилию
      *
      * @return string|null
      */
-    public function getUserName()
+    public function getLastName()
     {
-        return $this->get('username');
+        return $this->get('name')['last_name'];
     }
 
-    /**
-     * Возвращает Имя и Фамилию
-     *
-     * @return string|null
-     */
-    public function getFullName()
-    {
-        return $this->get('displayName');
-    }
-
-    /**
-     * Возвращает Описание
+    /***
+     * Возращает информацию "О себе"
      *
      * @return string|null
      */
@@ -77,83 +107,73 @@ class UserModel extends Model
         return $this->get('description');
     }
 
-    /**
-     * Возвращает полный адрес
+    /***
+     * Возвращает Страну и Город
      *
      * @return string|null
-     */
+    */
     public function getCountry()
     {
         return $this->get('country');
     }
 
-    /**
-     * Возвращает Email
+    /***
+     * Возращает ссылку на учетную записи в Steein
      *
      * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->get('email');
-    }
-
-    /**
-     * Возвращает путь к учетной записи
-     *
-     * @return string
-     */
+    */
     public function getLink()
     {
-        return $this->get('url');
+        return $this->get('link');
     }
 
-    /**
-     * Возвращает используемую локализацию
+    /***
+     * Возвращает статус "Подтврежденной страницы"
      *
-     * @return string|null
-     */
-    public function getLocale()
-    {
-        return $this->get('locale');
-    }
-
-    /**
-     * Возвращает статус проверенных учетных записей
-     *
-     * @return boolean
-     */
+     * @return integer
+    */
     public function getVerified()
     {
         return $this->get('verified');
     }
 
-    /**
-     * Возвращает счетчик подписчиков
+    /***
+     * Возвращает аватарку
      *
-     * @return integer
-     */
-    public function getFollowersCount()
+     * @return string|null
+    */
+    public function getAvatar()
     {
-        return (int)$this->get('additional')['followers_count'];
+        return $this->get('avatar');
     }
 
-    /**
-     * Возвращает счетчик подписок
+    /***
+     * Возвращает количество подписчиков
      *
      * @return integer
      */
-    public function getFollowingCount()
+    public function getCountFollowers()
     {
-        return (int)$this->get('additional')['following_count'];
+        return $this->get('action')['followers'];
     }
 
-    /**
-     * Возвращает счетчик записей
+    /***
+     * Возвращает количество пидписок
      *
      * @return integer
      */
-    public function getPostsCount()
+    public function getCountFollowing()
     {
-        return (int)$this->get('additional')['posts_count'];
+        return $this->get('action')['following'];
+    }
+
+    /***
+     * Возвращает количество записей
+     *
+     * @return integer
+     */
+    public function getCountPosts()
+    {
+        return $this->get('action')['posts'];
     }
 }
