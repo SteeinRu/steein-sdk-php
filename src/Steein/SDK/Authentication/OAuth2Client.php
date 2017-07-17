@@ -212,6 +212,6 @@ class OAuth2Client
     protected function formatScopes($scope = [])
     {
         $implode = \implode(',', $scope);
-        return \str_replace(',','',$implode);
+        return \str_replace(',',' ',$implode);
     }
 }
