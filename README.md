@@ -25,16 +25,17 @@ require_once '/path/to/your-project/vendor/autoload.php';
 Simple GET example of a user's account.
 
 ```php
-
-$sdk = new Steein([
-    'client_id' =>  '{client_id}',
-    'client_secret' => '{client_secret}',
-    'default_api_version' => 'v2.0',
+$steein = new Steein([
+    'client_id'             =>  '{id}',
+    'client_secret'         => '{secret_key}',
+    'default_api_version'   =>  'v2.0'
 ]);
-$sdk->setDefaultAccessToken($accessToken);
+$steein->setDefaultAccessToken('{access_token}');
 
-$account = $sdk->get('/account/show');
-$response = $account->getUserModel()->toArray();
+$get = $steein->get('/users/show'); //$steein->get('/users/show',['id' => 1]);
+$user = $get->getUserModel(); //$get->getDecodedBody()
+
+echo 'ID: '. $user->getId(); //or $user->all();
 ```
 
 Complete documentation, installation instructions, and examples are available [here](https://www.steein.ru/developers/docs/php/getting_started).
