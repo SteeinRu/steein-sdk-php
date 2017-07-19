@@ -1,6 +1,6 @@
 # Steein SDK for PHP
 
-***Welcome to PayPal PHP SDK.*** This repository contains Steein's PHP SDK and samples for REST API.
+***Welcome to Steein PHP SDK.*** This repository contains Steein's PHP SDK and samples for REST API.
 
 
 
