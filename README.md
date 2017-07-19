@@ -1,5 +1,9 @@
 # Steein SDK for PHP
 
+***Welcome to PayPal PHP SDK.*** This repository contains Steein's PHP SDK and samples for REST API.
+
+
+
 ## Installation
 
 The preferred method is via composer. Follow the installation instructions if you do not already have composer installed.
@@ -15,10 +19,13 @@ require_once '/path/to/your-project/vendor/autoload.php';
 ```
 
 
-## Developer Documentation
+## SDK Documentation
 
- * [Steein SDK Documentation](https://www.steein.ru/developers/docs/php/getting_started)
- * [Developer Documentation](https://www.steein.ru/developers/docs/overview)
+ * [Documentation](https://www.steein.ru/developers/docs/steein-api.overview)
+ * [API Reference](https://www.steein.ru/developers/docs/api-reference.common-objects)
+ * [Samples](https://github.com/SteeinRu/steein-api-samples)
+ * [Installation](https://www.steein.ru/developers/docs/sdk-quickstart-guide.install)
+ * [Make your First SDK Call](https://www.steein.ru/developers/docs/steein-api.make-your-first-call)
 
 ## Usage
 
