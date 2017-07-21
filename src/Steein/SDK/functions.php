@@ -26,6 +26,21 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
+use Steein\SDK\Core\SteeinConfigManager;
 
+/**
+ * Gets a specific configuration from key
+ *
+ * @param $searchKey
+ * @return mixed
+ */
+function config($searchKey)
+{
+    $hashMap = SteeinConfigManager::getInstance()->getConfigHashmap();
 
-//null
+    if(isset($hashMap)) {
+        return SteeinConfigManager::getInstance()->get($searchKey);
+    }
+
+    return null;
+}
