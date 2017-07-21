@@ -41,7 +41,6 @@ acct1.ClientId = {id}
 acct1.ClientSecret = {secret_key}
 acct1.VersionApi = v2.0
 ```
-
 *** index.php ***
 ```php
 define('STEEIN_CONFIG_PATH', __DIR__);
