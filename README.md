@@ -31,6 +31,22 @@ require_once '/path/to/your-project/vendor/autoload.php';
 
 Simple GET example of a user's account.
 
+### Version 1
+
+***sdk-config.ini***
+[Account]
+acct1.ClientId = {id}
+acct1.ClientSecret = {secret_key}
+acct1.VersionApi = v2.0
+
+
+*** index.php ***
+define('STEEIN_CONFIG_PATH', __DIR__);
+$steein = new Steein();
+
+
+### Version 2
+
 ```php
 $steein = new Steein([
     'client_id'             =>  '{id}',
