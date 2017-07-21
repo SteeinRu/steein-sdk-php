@@ -28,6 +28,7 @@
  */
 namespace Steein\SDK;
 
+use Steein\SDK\Core\SteeinConstants;
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\Interfaces\HttpClients\HttpClientInterface;
 
@@ -38,13 +39,6 @@ use Steein\SDK\Interfaces\HttpClients\HttpClientInterface;
  */
 class SteeinClient
 {
-    /**
-     * URL-адрес производственного API.
-     *
-     * @const string
-     */
-    const BASE_API_URL = 'https://www.steein.ru';
-
     /**
      * Тайм-аут в секундах для обычного запроса.
      *
@@ -124,16 +118,6 @@ class SteeinClient
     }
 
     /**
-     * Возвращает базовый URL-адрес API.
-     *
-     * @return string
-     */
-    public function getBaseGraphUrl()
-    {
-        return static::BASE_API_URL;
-    }
-
-    /**
      * Подготавливает запрос на отправку в обработчик клиента.
      *
      * @param SteeinRequest $request
@@ -142,7 +126,7 @@ class SteeinClient
      */
     public function prepareRequestMessage(SteeinRequest $request)
     {
-        $url = $this->getBaseGraphUrl() . $request->getUrl();
+        $url = SteeinConstants::REST_BASE_ENDPOINT . $request->getUrl();
 
         //Если мы отправляем файлы, они должны быть отправлены как multipart/form-data
         if ($request->containsFileUploads())
