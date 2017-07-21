@@ -15,7 +15,8 @@
   "require": {
     "php": "^5.6|^7.0",
     "guzzlehttp/guzzle": "6.2.3",
-    "steein/collections": "1.1.5"
+    "steein/collections": "1.1.5",
+    "psr/log": "1.0.2"
   },
 
   "require-dev": {
