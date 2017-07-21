@@ -31,6 +31,7 @@ namespace Steein\SDK;
 use Serializable;
 use Steein\SDK\Authentication\AccessToken;
 use Steein\SDK\Exceptions\SteeinSDKException;
+use Steein\SDK\Core\SteeinConstants;
 
 /**
  * Class Application
@@ -99,7 +100,7 @@ class Application implements Serializable
     */
     public function baseUrl()
     {
-        return 'https://www.steein.ru';
+        return SteeinConstants::REST_BASE_ENDPOINT;
     }
 
     /**

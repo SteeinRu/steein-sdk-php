@@ -30,6 +30,7 @@ namespace Steein\SDK\HttpClients;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\Http\RawResponse;
@@ -73,7 +74,7 @@ class GuzzleHttpClient implements HttpClientInterface
             'verify'            => true,
         ];
 
-        $request =  new \GuzzleHttp\Psr7\Request($method, $url, $options['headers'], $options['body']);
+        $request =  new Request($method, $url, $options['headers'], $options['body']);
 
         try
         {

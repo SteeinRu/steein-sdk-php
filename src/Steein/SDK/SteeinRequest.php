@@ -30,6 +30,7 @@ namespace Steein\SDK;
 
 use Steein\SDK\Authentication\AccessToken;
 use Steein\SDK\Bundler\FileUpload\SteeinFile;
+use Steein\SDK\Core\SteeinConstants;
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\Http\RequestBodyMultipart;
 use Steein\SDK\Http\RequestBodyUrlEncoded;
@@ -124,7 +125,7 @@ class SteeinRequest
         $this->setEndpoint($endpoint);
         $this->setParams($params);
         $this->setETag($eTag);
-        $this->apiVersion = $apiVersion ?: Steein::DEFAULT_API_VERSION;
+        $this->apiVersion = $apiVersion ?: null;
     }
 
     /**
@@ -510,7 +511,7 @@ class SteeinRequest
     public static function getDefaultHeaders()
     {
         return [
-            'User-Agent' => 'steein-php--sdk-' . Steein::VERSION,
+            'User-Agent' => SteeinConstants::SDK_NAME . SteeinConstants::SDK_VERSION,
             'Accept-Encoding' => '*',
         ];
     }

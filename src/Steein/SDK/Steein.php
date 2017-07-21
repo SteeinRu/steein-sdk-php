@@ -45,34 +45,6 @@ use Steein\SDK\Interfaces\SteeinInterface;
 class Steein implements SteeinInterface
 {
     /**
-     * Актуальная версии приложения.
-     *
-     * @const string
-    */
-    const VERSION = '0.5';
-
-    /**
-     * Актуальная версия Steein API
-     *
-     * @const string
-     */
-    const DEFAULT_API_VERSION = '';
-
-    /**
-     * Имя переменной среды, которая содержит client ID.
-     *
-     * @const string
-    */
-    const CLIENT_ID_ENV_NAME = 'STEEIN CLIENT ID';
-
-    /**
-     * Имя переменной среды, которая содержит client SECRET.
-     *
-     * @const string
-     */
-    const CLIENT_SECRET_ENV_NAME = 'STEEIN CLIENT SECRET';
-
-    /**
      * Экземпляр приложения Application.
      *
      * @var \Steein\SDK\Application
@@ -129,17 +101,22 @@ class Steein implements SteeinInterface
      */
     public function __construct($config = [])
     {
+        if(empty($config)) {
+            $config = $this->defaultConfig();
+        }
+
         $this->collect = Collection::instance($this->defaultConfig());
+
 
         //Объединяем конфигурационные массивы
         $config = $this->collect->merge($config);
 
         if(!$config['client_id']) {
-            throw new SteeinSDKException("Ключ \"client_id\" не указан, и не  нашли переменную среды ". static::CLIENT_ID_ENV_NAME);
+            throw new SteeinSDKException("Ключ \"client_id\" не указан");
         }
 
         if(!$config['client_secret']) {
-            throw new SteeinSDKException("Секретный ключ \"client_secret\" не указан, и не нашли переменную среды  ". static::CLIENT_SECRET_ENV_NAME);
+            throw new SteeinSDKException("Секретный ключ \"client_secret\" ");
         }
 
         //Начинаем работу
@@ -362,9 +339,9 @@ class Steein implements SteeinInterface
     protected function defaultConfig()
     {
         return [
-            'client_id'             =>  getenv(static::CLIENT_ID_ENV_NAME),
-            'client_secret'         =>  getenv(static::CLIENT_SECRET_ENV_NAME),
-            'default_api_version'   =>  getenv(static::DEFAULT_API_VERSION),
+            'client_id'             =>  config('acct1.ClientId'),
+            'client_secret'         =>  config('acct1.ClientSecret'),
+            'default_api_version'   =>  config('acct1.VersionApi'),
             'default_access_token'  =>  null
         ];
     }

@@ -26,25 +26,27 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-
-namespace Steein\SDK\Exceptions;
+namespace Steein\SDK\Core;
 
 /**
- * Class SteeinConfigurationException
+ * Class: SteeinConstants
+ * Placeholder for Steein Constants
  *
- * @package Steein\SDK\Exception
+ * @package Steein\SDK\Core
  */
-class SteeinConfigurationException extends \Exception
+class SteeinConstants
 {
+    const SDK_NAME = 'Steein-PHP-SDK';
+    const SDK_VERSION = '1.12.0';
 
     /**
-     * Default Constructor
-     *
-     * @param string|null $message
-     * @param int  $code
+     * Approval URL for Payment
      */
-    public function __construct($message = null, $code = 0)
-    {
-        parent::__construct($message, $code);
-    }
+    const APPROVAL_URL = 'approval_url';
+
+    const REST_BASE_ENDPOINT = "https://st.ru";
+    const REST_ENDPOINT = "https://st.ru/api/";
+    const OPENID_REDIRECT_URL = "https://st.ru";
+
+    const DEFAULT_API_VERSION = "2.0";
 }
