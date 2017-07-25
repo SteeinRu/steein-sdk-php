@@ -28,6 +28,7 @@
  */
 namespace Steein\SDK\HttpClients;
 
+use Exception;
 use GuzzleHttp\Client;
 use InvalidArgumentException;
 use Steein\SDK\Exceptions\HttpClientException;
@@ -49,13 +50,11 @@ class HttpClientsFactory
      * Генерация клиента HTTP.
      *
      * @param HttpClientInterface|Client|string|null $handler
-     *
-     * @throws HttpClientException
-     * @throws InvalidArgumentException
-     *
      * @return HttpClientInterface
+     * @throws Exception
+     * @throws HttpClientException
      */
-    public static function createHttpClient($handler = 'guzzle')
+    public static function createHttpClient($handler = 'curl')
     {
         if (!$handler) {
             return self::detectDefaultClient();
@@ -63,6 +62,14 @@ class HttpClientsFactory
 
         if ($handler instanceof HttpClientInterface) {
             return $handler;
+        }
+
+        if ('curl' === $handler) {
+            if (!extension_loaded('curl')) {
+                throw new Exception('The cURL extension must be loaded in order to use the "curl" handler.');
+            }
+
+            return new SteeinCurlHttpClient();
         }
 
         if ('guzzle' === $handler && !class_exists('\GuzzleHttp\Client')) {
@@ -83,11 +90,15 @@ class HttpClientsFactory
     /**
      * Определить HTTP-клиента по умолчанию.
      *
-     * @return HttpClientInterface
+     * @return GuzzleHttpClient|SteeinCurlHttpClient
      * @throws HttpClientException
      */
     private static function detectDefaultClient()
     {
+        if (extension_loaded('curl')) {
+            return new SteeinCurlHttpClient();
+        }
+
         if (class_exists('GuzzleHttp\Client')) {
             return new GuzzleHttpClient();
         }
