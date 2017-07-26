@@ -56,7 +56,7 @@ class SteeinHttpFactory
      * @throws Exception
      * @throws HttpClientException
      */
-    public static function createHttpClient($handler = 'curl')
+    public static function createHttpClient($handler = 'guzzle')
     {
         if (!$handler) {
             return self::detectDefaultClient();
