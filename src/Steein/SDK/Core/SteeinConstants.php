@@ -39,11 +39,11 @@ class SteeinConstants
     const DEBUG = true;
 
     const SDK_NAME = 'Steein-PHP-SDK';
-    const SDK_VERSION = '2.0.5';
+    const SDK_VERSION = '2.0.6';
 
-    const REST_BASE_ENDPOINT = "https://st.ru";
-    const REST_ENDPOINT = "https://st.ru/api/";
-    const OPENID_REDIRECT_URL = "https://st.ru";
+    const REST_BASE_ENDPOINT = "https://www.steein.ru";
+    const REST_ENDPOINT = "https://www.steein.ru/api/";
+    const OPENID_REDIRECT_URL = "https://www.steein.ru";
 
     const DEFAULT_API_VERSION = "2.0";
 }

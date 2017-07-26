@@ -26,7 +26,7 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Steein\SDK\Bundler\FileUpload;
+namespace Steein\SDK\Core\FileUpload;
 
 use Steein\SDK\Exceptions\SteeinSDKException;
 

@@ -35,7 +35,7 @@ use Steein\SDK\Interfaces\HttpClients\HttpClientInterface;
 /**
  * Class SteeinClient
  *
- * @package Steein
+ * @package Steein\SDK
  */
 class SteeinClient
 {

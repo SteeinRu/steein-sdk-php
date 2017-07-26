@@ -26,7 +26,7 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Steein\SDK\Http\Helpers;
+namespace Steein\SDK\Core\Http\Helpers;
 
 use Steein\SDK\Authentication\AccessToken;
 use Steein\SDK\Authentication\OAuth2Client;

@@ -29,6 +29,7 @@
 namespace Steein\SDK\Authentication;
 
 use Steein\SDK\Application;
+use Steein\SDK\Core\SteeinConstants;
 use Steein\SDK\Exceptions\ResponseException;
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\Steein;
@@ -43,7 +44,6 @@ use Steein\SDK\SteeinResponse;
  */
 class OAuth2Client
 {
-
     /**
      * Экземпляр приложения Application
      *
@@ -111,12 +111,12 @@ class OAuth2Client
             'client_id'     =>  $this->app->getId(),
             'redirect_uri'  =>  $redirectUrl,
             'response_type' =>  'code',
+            'sdk'           =>  SteeinConstants::SDK_NAME.'-'.SteeinConstants::SDK_VERSION,
             'scope'         =>  $this->formatScopes($scope)
         ];
 
         return $this->app->baseUrl().'/oauth/authorize?'.http_build_query($params, null, $separator);
     }
-
 
     /**
      * Получить действительный токен ключ из "code".

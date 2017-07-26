@@ -27,10 +27,10 @@
  *
  */
 
-namespace Steein\SDK\HttpClients;
+namespace Steein\SDK\Core\Http\Clients;
 
 use Steein\SDK\Core\SteeinConstants;
-use Steein\SDK\Http\RawResponse;
+use Steein\SDK\Core\Http\RawResponse;
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\Interfaces\HttpClients\HttpClientInterface;
 

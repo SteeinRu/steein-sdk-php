@@ -26,20 +26,22 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Steein\SDK\HttpClients;
+namespace Steein\SDK\Core;
 
 use Exception;
 use GuzzleHttp\Client;
 use InvalidArgumentException;
+use Steein\SDK\Core\Http\Clients\GuzzleHttpClient;
+use Steein\SDK\Core\Http\Clients\SteeinCurlHttpClient;
 use Steein\SDK\Exceptions\HttpClientException;
 use Steein\SDK\Interfaces\HttpClients\HttpClientInterface;
 
 /**
- * Class HttpClientsFactory
+ * Class SteeinHttpFactory
  *
  * @package Steein\SDK
 */
-class HttpClientsFactory
+class SteeinHttpFactory
 {
     private function __construct()
     {

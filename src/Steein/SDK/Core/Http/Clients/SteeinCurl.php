@@ -27,7 +27,7 @@
  *
  */
 
-namespace Steein\SDK\HttpClients;
+namespace Steein\SDK\Core\Http\Clients;
 
 /**
  * Class SteeinCurl

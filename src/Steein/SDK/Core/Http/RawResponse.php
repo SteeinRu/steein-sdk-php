@@ -26,7 +26,7 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Steein\SDK\Http;
+namespace Steein\SDK\Core\Http;
 
 /**
  * Class RawResponse

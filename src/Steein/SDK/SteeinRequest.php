@@ -29,11 +29,11 @@
 namespace Steein\SDK;
 
 use Steein\SDK\Authentication\AccessToken;
-use Steein\SDK\Bundler\FileUpload\SteeinFile;
+use Steein\SDK\Core\FileUpload\SteeinFile;
 use Steein\SDK\Core\SteeinConstants;
 use Steein\SDK\Exceptions\SteeinSDKException;
-use Steein\SDK\Http\RequestBodyMultipart;
-use Steein\SDK\Http\RequestBodyUrlEncoded;
+use Steein\SDK\Core\Http\RequestBodyMultipart;
+use Steein\SDK\Core\Http\RequestBodyUrlEncoded;
 use Steein\SDK\Url\UrlManipulator;
 
 /**

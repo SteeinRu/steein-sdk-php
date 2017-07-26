@@ -26,14 +26,15 @@
  * DEALINGS IN THE SOFTWARE.
  *
  */
-namespace Steein\SDK\HttpClients;
+namespace Steein\SDK\Core\Http\Clients;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
+use Steein\SDK\Core\SteeinConstants;
 use Steein\SDK\Exceptions\SteeinSDKException;
-use Steein\SDK\Http\RawResponse;
+use Steein\SDK\Core\Http\RawResponse;
 use Steein\SDK\Interfaces\HttpClients\HttpClientInterface;
 
 /**
@@ -71,8 +72,12 @@ class GuzzleHttpClient implements HttpClientInterface
             'body'              => $body,
             'timeout'           => $timeOut,
             'connect_timeout'   => 10,
-            'verify'            => true,
+            'verify'            => __DIR__.'/certs/DigiCertHighAssuranceEVRootCA.pem'
         ];
+
+        if(SteeinConstants::DEBUG == true) {
+            $options['verify'] = false;
+        }
 
         $request =  new Request($method, $url, $options['headers'], $options['body']);
 

@@ -31,16 +31,16 @@ namespace Steein\SDK;
 use Steein\Common\Collections\Collection;
 use Steein\SDK\Authentication\AccessToken;
 use Steein\SDK\Authentication\OAuth2Client;
-use Steein\SDK\Bundler\FileUpload\SteeinFile;
+use Steein\SDK\Core\FileUpload\SteeinFile;
+use Steein\SDK\Core\Http\Helpers\RedirectOAuth;
+use Steein\SDK\Core\SteeinHttpFactory;
 use Steein\SDK\Exceptions\SteeinSDKException;
-use Steein\SDK\Http\Helpers\RedirectOAuth;
-use Steein\SDK\HttpClients\HttpClientsFactory;
 use Steein\SDK\Interfaces\SteeinInterface;
 
 /**
  * Class Steein
  *
- * @package Steein
+ * @package Steein\SDK
  */
 class Steein implements SteeinInterface
 {
@@ -122,7 +122,7 @@ class Steein implements SteeinInterface
         //Начинаем работу
         $this->app = new Application($config->get('client_id'), $config->get('client_secret'));
         $this->client = new SteeinClient(
-            HttpClientsFactory::createHttpClient()
+            SteeinHttpFactory::createHttpClient()
         );
 
         //Проверяем токен ключ
@@ -156,7 +156,7 @@ class Steein implements SteeinInterface
     /**
      * Возвращает логин для перенаправления.
      *
-     * @return \Steein\SDK\Http\Helpers\RedirectOAuth
+     * @return \Steein\SDK\Core\Http\Helpers\RedirectOAuth
      */
     public function redirectOAuth()
     {

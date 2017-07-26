@@ -36,7 +36,7 @@ use Steein\SDK\Core\SteeinConstants;
 /**
  * Class Application
  *
- * @package Steein
+ * @package Steein\SDK
  */
 class Application implements Serializable
 {
@@ -66,7 +66,7 @@ class Application implements Serializable
     {
         // Хранение этого для BS. Целые числа, превышающие PHP_INT_MAX, сделают is_int() return false
         if (!is_string($id) && !is_int($id)) {
-            throw new SteeinSDKException('"client_id" должна отформатироваться как строка');
+            throw new SteeinSDKException('"client_id" должен быть строковым');
         }
 
         $this->id = (string) $id;
