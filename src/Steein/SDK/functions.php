@@ -34,7 +34,7 @@ use Steein\SDK\Core\SteeinConfigManager;
  * @param $searchKey
  * @return mixed
  */
-function config($searchKey)
+function steeinConfig($searchKey)
 {
     $hashMap = SteeinConfigManager::getInstance()->getConfigHashmap();
 

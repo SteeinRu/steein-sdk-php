@@ -339,9 +339,9 @@ class Steein implements SteeinInterface
     protected function defaultConfig()
     {
         return [
-            'client_id'             =>  config('acct1.ClientId'),
-            'client_secret'         =>  config('acct1.ClientSecret'),
-            'default_api_version'   =>  config('acct1.VersionApi'),
+            'client_id'             =>  steeinConfig('acct1.ClientId'),
+            'client_secret'         =>  steeinConfig('acct1.ClientSecret'),
+            'default_api_version'   =>  steeinConfig('acct1.VersionApi'),
             'default_access_token'  =>  null
         ];
     }
