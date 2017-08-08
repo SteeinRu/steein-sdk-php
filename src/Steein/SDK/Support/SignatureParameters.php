@@ -31,7 +31,7 @@ namespace Steein\SDK\Support;
 
 use Steein\SDK\Exceptions\SteeinSDKException;
 use Steein\SDK\SteeinResponse;
-use Steein\SDK\Support\Models\ModelEdge;
+use Steein\SDK\Support\ModelEdge;
 
 /**
  * Class SignatureParameters

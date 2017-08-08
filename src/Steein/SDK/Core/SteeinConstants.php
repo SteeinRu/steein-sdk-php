@@ -36,7 +36,7 @@ namespace Steein\SDK\Core;
  */
 class SteeinConstants
 {
-    const DEBUG = true;
+    const DEBUG = false;
 
     const SDK_NAME = 'Steein-PHP-SDK';
     const SDK_VERSION = '2.0.7';

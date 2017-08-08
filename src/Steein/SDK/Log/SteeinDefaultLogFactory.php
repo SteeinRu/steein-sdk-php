@@ -29,7 +29,6 @@
 
 namespace Steein\SDK\Log;
 
-
 use Psr\Log\LoggerInterface;
 
 class SteeinDefaultLogFactory implements SteeinLogFactory

@@ -28,7 +28,7 @@
  */
 namespace Steein\SDK\Core\Http;
 
-use Steein\SDK\Bundler\FileUpload\SteeinFile;
+use Steein\SDK\Core\FileUpload\SteeinFile;
 use Steein\SDK\Interfaces\Http\RequestBodyInterface;
 
 /**

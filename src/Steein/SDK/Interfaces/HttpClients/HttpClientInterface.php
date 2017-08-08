@@ -44,7 +44,7 @@ interface HttpClientInterface
      * @param array  $headers The request headers.
      * @param int    $timeOut The timeout in seconds for the request.
      *
-     * @return \Steein\SDK\Http\RawResponse Raw response from the server.
+     * @return \Steein\SDK\Core\Http\RawResponse Raw response from the server.
      *
      * @throws \Steein\SDK\Exceptions\SteeinSDKException
      */

@@ -31,9 +31,9 @@ namespace Steein\SDK\Interfaces;
 
 use Steein\SDK\Application;
 use Steein\SDK\Authentication\AccessToken;
-use Steein\SDK\Bundler\FileUpload\SteeinFile;
+use Steein\SDK\Core\FileUpload\SteeinFile;
+use Steein\SDK\Core\Http\Helpers\RedirectOAuth;
 use Steein\SDK\Exceptions\SteeinSDKException;
-use Steein\SDK\Http\Helpers\RedirectOAuth;
 use Steein\SDK\SteeinClient;
 use Steein\SDK\SteeinRequest;
 use Steein\SDK\SteeinResponse;

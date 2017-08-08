@@ -266,7 +266,7 @@ class Steein implements SteeinInterface
      *
      * @param string $pathToFile
      *
-     * @return \Steein\SDK\Bundler\FileUpload\SteeinFile
+     * @return \Steein\SDK\Core\FileUpload\SteeinFile
      *
      * @throws \Steein\SDK\Exceptions\SteeinSDKException
      */
