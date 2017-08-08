@@ -72,12 +72,9 @@ class GuzzleHttpClient implements HttpClientInterface
             'body'              => $body,
             'timeout'           => $timeOut,
             'connect_timeout'   => 10,
-            'verify'            => __DIR__.'/certs/DigiCertHighAssuranceEVRootCA.pem'
+            //'verify'            => __DIR__.'/certs/DigiCertHighAssuranceEVRootCA.pem',
+            'verify'            => false
         ];
-
-        if(SteeinConstants::DEBUG == true) {
-            $options['verify'] = false;
-        }
 
         $request =  new Request($method, $url, $options['headers'], $options['body']);
 
