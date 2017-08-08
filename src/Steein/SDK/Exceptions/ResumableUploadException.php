@@ -28,7 +28,6 @@
  */
 namespace Steein\SDK\Exceptions;
 
-
 /**
  * Class ResumableUploadException
  *
