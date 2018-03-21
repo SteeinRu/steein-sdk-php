@@ -4,7 +4,7 @@
   "keywords": ["steein", "sdk","library","steein-api"],
   "type":   "library",
   "homepage": "https://github.com/steein/steein-sdk-php",
-  "license": "Steein Platform",
+  "license": "MIT",
   "authors": [
     {
       "name": "Shamsudin Serderov",
